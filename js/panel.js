@@ -19,44 +19,61 @@ let citasDemo = [];
 let barberoElegido = 'todos';
 let citas = [];
 
-// ---- Entrar ----
+// ---- Entrada sin contraseña: enlace por correo ----
+const VOLVER_A = `${location.origin}${location.pathname}`;
+
 formLogin.addEventListener('submit', async (evento) => {
   evento.preventDefault();
-  const correo = formLogin.elements.correo.value.trim();
-  const clave = formLogin.elements.clave.value;
-  if (!/^\S+@\S+\.\S+$/.test(correo) || clave.length < 6) {
-    avisoLogin.textContent = 'Escribe tu correo y tu contraseña.';
+  const correo = formLogin.elements.correo.value.trim().toLowerCase();
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(correo) || correo.length > 120) {
+    avisoLogin.textContent = 'Escribe un correo válido.';
     return;
   }
   const boton = formLogin.querySelector('[type="submit"]');
   boton.disabled = true;
-  avisoLogin.textContent = '';
-  const respuesta = await fetch(`${SUPABASE_URL}/auth/v1/token?grant_type=password`, {
+  avisoLogin.classList.remove('bien');
+  const respuesta = await fetch(`${SUPABASE_URL}/auth/v1/otp?redirect_to=${encodeURIComponent(VOLVER_A)}`, {
     method: 'POST',
     headers: { apikey: SUPABASE_CLAVE, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ email: correo, password: clave }),
+    // create_user en falso: desde aquí nadie puede crearse una cuenta nueva
+    body: JSON.stringify({ email: correo, create_user: false }),
   }).catch(() => null);
   boton.disabled = false;
   if (!respuesta) {
     avisoLogin.textContent = 'Sin conexión. Inténtalo otra vez.';
     return;
   }
-  if (!respuesta.ok) {
-    // mismo mensaje para correo o clave malos: no se revela cuál falló
-    avisoLogin.textContent = respuesta.status === 429 ? 'Demasiados intentos. Espera unos minutos.' : 'Correo o contraseña incorrectos.';
+  if (respuesta.status === 429) {
+    avisoLogin.textContent = 'Ya enviamos varios enlaces. Espera unos minutos.';
     return;
   }
-  const datos = await respuesta.json();
-  sesion = { token: datos.access_token };
+  // mismo mensaje exista o no la cuenta: no se revela qué correos son de dueños
+  avisoLogin.textContent = 'Si ese correo es de un dueño, te llegó un enlace para entrar. Revisa también el spam.';
+  avisoLogin.classList.add('bien');
   formLogin.reset();
-  const esDueno = await llamar('rpc/filo_es_dueno', { method: 'POST', body: '{}' });
+});
+
+// Al volver desde el enlace del correo, el token llega en la dirección (#access_token=...).
+async function entrarConEnlace() {
+  const datos = new URLSearchParams(location.hash.slice(1));
+  const token = datos.get('access_token');
+  const error = datos.get('error_description');
+  if (!token && !error) return;
+  history.replaceState(null, '', VOLVER_A);
+  if (error) {
+    avisoLogin.textContent = 'El enlace venció o ya se usó. Pide uno nuevo.';
+    return;
+  }
+  sesion = { token };
+  const esDueno = await llamar('rpc/filo_es_dueno', { method: 'POST', body: '{}' }).catch(() => false);
   if (esDueno !== true) {
     sesion = null;
     avisoLogin.textContent = 'Esta cuenta no tiene acceso al panel de la barbería.';
     return;
   }
   abrirTablero(false);
-});
+}
+entrarConEnlace();
 
 document.querySelector('[data-demo]').addEventListener('click', () => {
   citasDemo = inventarCitas();
