@@ -5,7 +5,7 @@ import { elegirEnReserva } from './reserva.js';
 const conCursor = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---- La carta de servicios, con una foto que sigue al cursor ----
+// ---- Carta de servicios ----
 const carta = document.querySelector('[data-carta]');
 const flotante = document.querySelector('[data-carta-foto]');
 
@@ -37,7 +37,7 @@ servicios.forEach((servicio) => {
   carta.append(plato);
 });
 
-// La foto llega al cursor con un poco de retraso e inclinación: se siente que "cuelga".
+// Retraso e inclinación para que la foto "cuelgue" del cursor
 if (conCursor && !reducirMovimiento) {
   let x = 0;
   let y = 0;
@@ -59,7 +59,7 @@ if (conCursor && !reducirMovimiento) {
   requestAnimationFrame(seguir);
 }
 
-// ---- Antes y después: un input range mueve la división (sirve con mouse, dedo y teclado) ----
+// ---- Antes y después (input range: mouse, dedo y teclado) ----
 const comparador = document.querySelector('[data-comparador]');
 const rango = document.querySelector('[data-comparador-rango]');
 rango.addEventListener('input', () => comparador.style.setProperty('--corte', `${rango.value}%`));
@@ -88,7 +88,7 @@ barberos.forEach((barbero) => {
   lista.append(tarjeta);
 });
 
-// ---- Galería que se arrastra con el mouse (en el teléfono se desliza normal) ----
+// ---- Galería arrastrable (en el teléfono, scroll normal) ----
 const galeria = document.querySelector('[data-galeria]');
 let agarre = null;
 galeria.addEventListener('pointerdown', (evento) => {

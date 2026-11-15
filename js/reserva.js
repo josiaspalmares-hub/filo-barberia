@@ -3,7 +3,7 @@ import { ponerPrecio } from './moneda.js';
 import { avisar } from './aviso.js';
 import { SUPABASE_URL, SUPABASE_CLAVE } from './config.js';
 
-// Reserva en 5 pasos. La base de datos vuelve a validar todo; aquí solo se guía a la persona.
+// Reserva en 5 pasos (la base de datos vuelve a validar todo)
 const TELEFONO_VE = /^04(12|14|16|24|26|22)\d{7}$/;
 const ERRORES = {
   hora_ocupada: 'Alguien acaba de apartar esa hora. Elige otra, porfa.',
@@ -42,7 +42,7 @@ const confirmada = document.querySelector('[data-confirmada]');
 const eleccion = { servicio: null, barbero: null, dia: null, hora: null };
 let pasoActual = 1;
 
-// ---- Opciones (botones de radio con una caja encima) ----
+// ---- Opciones ----
 function crearOpcion(grupo, valor, contenido, alElegir) {
   const etiqueta = document.createElement('label');
   etiqueta.className = 'opcion';
@@ -101,7 +101,7 @@ function pintarDias() {
   ], (valor) => elegir('dia', valor))));
 }
 
-// ---- Horas: se preguntan a la base de datos cuáles están ocupadas ----
+// ---- Horas ocupadas ----
 async function horasOcupadas(barbero, dia) {
   const respuesta = await fetch(`${SUPABASE_URL}/rest/v1/rpc/filo_horas_ocupadas`, {
     method: 'POST',
@@ -159,7 +159,7 @@ function elegir(clave, valor) {
   if (numero === pasoActual) setTimeout(() => irAPaso(pasoActual + 1), 260);
 }
 
-// Desde la carta o el equipo: marca la opción y lleva a la persona al formulario.
+// Reservar desde la carta o el equipo
 export function elegirEnReserva(datos) {
   Object.entries(datos).forEach(([clave, valor]) => {
     eleccion[clave] = valor;
@@ -303,7 +303,7 @@ function mostrarConfirmacion(nombre, codigo) {
   avisar('¡Silla apartada!');
 }
 
-// Archivo .ics: el calendario del teléfono avisa una hora antes. Caracas es UTC−4 todo el año.
+// Archivo .ics con aviso una hora antes. Caracas es UTC−4 todo el año.
 function archivoCalendario(servicio, barbero, codigo) {
   const [a, m, d] = eleccion.dia.split('-').map(Number);
   const [h, mi] = eleccion.hora.split(':').map(Number);
@@ -321,7 +321,7 @@ function archivoCalendario(servicio, barbero, codigo) {
   ].join('\r\n');
 }
 
-// ---- Cancelar con código y teléfono: la hora vuelve a quedar libre ----
+// ---- Cancelar con código y teléfono ----
 const formCancelar = document.querySelector('[data-cancelar]');
 const avisoCancelar = document.querySelector('[data-cancelar-aviso]');
 const ERRORES_CANCELAR = {
@@ -374,7 +374,7 @@ confirmada.querySelector('[data-otra]').addEventListener('click', () => {
   irAPaso(1);
 });
 
-// El teléfono se va formateando como 0414-1234567 mientras se escribe.
+// Formato 0414-1234567
 formulario.elements.telefono.addEventListener('input', (evento) => {
   aviso.textContent = '';
   const digitos = soloDigitos(evento.target.value).slice(0, 11);

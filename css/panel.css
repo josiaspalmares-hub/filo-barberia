@@ -1,4 +1,4 @@
-/* Panel del dueño: claro, crema y cobre (los paneles nunca van en negro por defecto). */
+/* Panel del dueño */
 :root {
   --fondo: #f3ede3;
   --tarjeta: #fbf8f3;
@@ -56,7 +56,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; text-trans
 .cifra { padding: 18px 20px; border: 1px solid var(--linea); border-radius: 10px; background: var(--tarjeta); }
 .cifra__numero { margin: 0; font-family: var(--titular); font-size: 48px; font-weight: 900; line-height: 1; }
 .cifra__texto { margin: 4px 0 0; color: var(--gris); font-size: 14px; }
-/* la única tarjeta con vidrio: la del dinero */
+/* Tarjeta del dinero */
 .cifra--cobre { border-color: rgba(200, 116, 58, 0.4); background: linear-gradient(135deg, rgba(200, 116, 58, 0.22), rgba(251, 248, 243, 0.6)); backdrop-filter: blur(8px); }
 .controles { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin: 28px 0 12px; }
 .selector { display: grid; gap: 6px; font-size: 13px; font-weight: 700; }

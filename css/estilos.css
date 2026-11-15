@@ -60,7 +60,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; text-trans
 .boton--grande { min-height: 58px; padding: 0 34px; font-size: 17px; }
 .boton[disabled] { opacity: 0.45; cursor: not-allowed; }
 
-/* ============ Poste de barbero (se usa en la carga, la portada y la confirmación) ============ */
+/* ============ Poste de barbero ============ */
 .poste {
   position: relative; width: 26px; height: 160px; padding: 0; border-radius: 13px; overflow: hidden;
   background: var(--hueso); box-shadow: inset -6px 0 10px rgba(0, 0, 0, 0.25), inset 6px 0 10px rgba(255, 255, 255, 0.4);
@@ -113,7 +113,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; text-trans
 @keyframes latido { 70% { box-shadow: 0 0 0 9px rgba(111, 207, 143, 0); } }
 .poste--lado { position: absolute; right: var(--margen); top: 50%; z-index: 2; transform: translateY(-50%); }
 
-/* El título que la navaja corta en dos */
+/* Título cortado */
 .corte { position: relative; margin: 0; font-family: var(--titular); font-size: clamp(120px, 24vw, 330px); font-weight: 900; line-height: 0.82; letter-spacing: 0.01em; }
 .corte__mitad { display: block; }
 .corte__mitad--arriba { clip-path: polygon(0 0, 100% 0, 100% 46%, 0 58%); }
@@ -129,7 +129,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; text-trans
 .cinta__pista span::after { content: ''; display: inline-block; width: 26px; height: 3px; margin: 0 0 0.3em 52px; background: currentColor; transform: rotate(-35deg); vertical-align: middle; }
 @keyframes correr { to { transform: translateX(-50%); } }
 
-/* ============ Servicios: la carta ============ */
+/* ============ Servicios ============ */
 .servicios { position: relative; padding: clamp(80px, 10vw, 140px) var(--margen); }
 .carta { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--negro); }
 .plato {
@@ -146,7 +146,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; text-trans
 .plato__reservar { min-height: 44px; padding: 0 16px; border: 1px solid var(--negro); border-radius: 4px; background: transparent; font-size: 14px; font-weight: 700; cursor: pointer; transition: background 0.2s, color 0.2s; }
 .plato__reservar:hover { background: var(--negro); color: var(--crema); }
 .nota-tasa { margin: 16px 0 0; color: var(--gris); font-size: 13px; text-align: right; }
-/* la foto que sigue al cursor por la carta */
+/* Foto que sigue al cursor */
 .carta__flotante {
   position: fixed; left: 0; top: 0; z-index: 15; width: 240px; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px;
   pointer-events: none; opacity: 0; box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.5);
@@ -347,7 +347,7 @@ em { font-family: var(--serif); font-style: italic; font-weight: 500; text-trans
 /* ============ Portada con video ============ */
 video.portada__foto { animation: none; transform: none; }
 
-/* ============ Capítulos: fotos fijas que cambian con una frase cada una ============ */
+/* ============ Capítulos ============ */
 .capitulos { position: relative; height: 300vh; background: var(--negro); color: var(--crema); }
 .capitulos__fijo { position: sticky; top: 0; height: 100svh; overflow: hidden; }
 .capitulos__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.08); transition: opacity 0.9s ease, transform 2.4s var(--curva); }
@@ -390,7 +390,7 @@ video.portada__foto { animation: none; transform: none; }
   .golpes__linea { color: var(--negro); transform: none; }
 }
 
-/* ---- Ajustes para que nada empuje la página en el teléfono ---- */
+/* ---- Sin desborde en el teléfono ---- */
 .sellos > * { min-width: 0; }
 .tarjeta-sellos__fila { min-width: 0; }
 .sello { min-width: 0; }

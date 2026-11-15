@@ -5,7 +5,7 @@ import { HORARIO, ahoraEnCaracas, hora12 } from './datos.js';
 
 const reducirMovimiento = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-// ---- Carga: el poste gira mientras llegan las fotos ----
+// ---- Carga ----
 const carga = document.querySelector('.carga');
 addEventListener('load', () => setTimeout(() => carga.classList.add('oculta'), 400));
 
@@ -13,13 +13,13 @@ addEventListener('load', () => setTimeout(() => carga.classList.add('oculta'), 4
 const video = document.querySelector('[data-video-portada]');
 if (reducirMovimiento) video.pause();
 
-// ---- Encabezado con fondo al bajar ----
+// ---- Encabezado ----
 const encabezado = document.querySelector('.encabezado');
 const ajustarEncabezado = () => encabezado.classList.toggle('con-fondo', scrollY > 60);
 addEventListener('scroll', ajustarEncabezado, { passive: true });
 ajustarEncabezado();
 
-// ---- ¿Abierto ahora? y fila estimada, con la hora de Caracas ----
+// ---- Abierto ahora y fila estimada ----
 function pintarEstado() {
   const { fecha, minutos } = ahoraEnCaracas();
   const { abre, cierra } = fecha.getDay() === 0 ? HORARIO.domingo : HORARIO.semana;
@@ -32,7 +32,7 @@ function pintarEstado() {
   document.querySelector('[data-abierto]').textContent = abierta
     ? `Abierto hasta las ${hora12(`${cierra}:00`)}`
     : minutos < abre * 60 ? `Cerrado · abre hoy a las ${hora12(`${abre}:00`)}` : `Cerrado · abre mañana a las ${hora12(`${abreManana}:00`)}`;
-  // Fila de ejemplo según la hora del día (más gente a mediodía y al salir del trabajo).
+  // Fila de ejemplo: más gente a mediodía y al salir del trabajo
   const hora = minutos / 60;
   const gente = abierta ? Math.round(1 + 2 * Math.exp(-((hora - 12.5) ** 2) / 2) + 3 * Math.exp(-((hora - 17.5) ** 2) / 2)) : 0;
   document.querySelector('[data-fila]').textContent = abierta
@@ -42,7 +42,7 @@ function pintarEstado() {
 pintarEstado();
 setInterval(pintarEstado, 60000);
 
-// ---- Capítulos: según cuánto se bajó dentro de la sección, cambia foto y frase ----
+// ---- Capítulos ----
 const capitulos = document.querySelector('[data-capitulos]');
 const fotos = [...capitulos.querySelectorAll('.capitulos__foto')];
 const frases = [...capitulos.querySelectorAll('.capitulos__frases li')];
@@ -62,7 +62,7 @@ function pintarCapitulos() {
 addEventListener('scroll', pintarCapitulos, { passive: true });
 pintarCapitulos();
 
-// ---- Frase en tres golpes: cada línea se enciende al pasar por el centro de la pantalla ----
+// ---- Frase en tres golpes ----
 const lineas = document.querySelectorAll('.golpes__linea');
 const observadorGolpes = new IntersectionObserver((entradas) => {
   entradas.forEach((entrada) => entrada.target.classList.toggle('encendida', entrada.isIntersecting));

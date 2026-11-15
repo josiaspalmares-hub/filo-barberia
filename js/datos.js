@@ -1,4 +1,4 @@
-// Datos de la barbería ficticia FILO (proyecto de portafolio).
+// Datos de FILO (barbería ficticia)
 
 export const servicios = [
   { id: 'corte', nombre: 'Corte clásico', desc: 'Tijera y máquina, lavado y peinado. El de toda la vida, bien hecho.', min: 40, precio: 8, foto: 'cortes/k07' },
@@ -18,7 +18,7 @@ export const barberos = [
   { id: 'mateo', nombre: 'Mateo', apodo: 'El veterano', anos: 15, foto: 'equipo/b4', fuerte: 'Clásicos y niños' },
 ];
 
-// Horario de la barbería (hora de Caracas). Turnos cada 30 minutos.
+// Horario en hora de Caracas, turnos de 30 min
 export const HORARIO = {
   semana: { abre: 9, cierra: 19 }, // lunes a sábado, 9:00 AM a 7:00 PM
   domingo: { abre: 10, cierra: 14 }, // domingo, 10:00 AM a 2:00 PM

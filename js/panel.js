@@ -1,8 +1,7 @@
 import { servicios, barberos, servicioPorId, barberoPorId, hora12, ahoraEnCaracas, fechaISO, turnosDe } from './datos.js';
 import { SUPABASE_URL, SUPABASE_CLAVE } from './config.js';
 
-// Panel del dueño. Modo real: Supabase Auth + RLS (solo dueños ven citas).
-// Modo demostración: datos inventados en memoria, para quien llega desde el portafolio.
+// Panel del dueño: Supabase Auth + RLS, o modo demostración con datos inventados
 
 const entrar = document.querySelector('[data-entrar]');
 const tablero = document.querySelector('[data-tablero]');
@@ -19,7 +18,7 @@ let citasDemo = [];
 let barberoElegido = 'todos';
 let citas = [];
 
-// ---- Entrada sin contraseña: enlace por correo ----
+// ---- Entrada por enlace al correo ----
 const VOLVER_A = `${location.origin}${location.pathname}`;
 
 formLogin.addEventListener('submit', async (evento) => {
@@ -226,7 +225,7 @@ function botonEstado(texto, nuevo, cita, clase) {
   return boton;
 }
 
-// ---- Datos de ejemplo (siempre los mismos para el mismo día) ----
+// ---- Datos de ejemplo (fijos por día) ----
 function inventarCitas() {
   const nombres = ['Carlos M.', 'José L.', 'Daniel R.', 'Andrés P.', 'Luis G.', 'Miguel A.', 'Ricardo V.', 'Samuel T.', 'Gabriel F.', 'Diego C.', 'Jesús M.', 'Óscar B.', 'Sofía L.', 'Valentina P.'];
   const lista = [];

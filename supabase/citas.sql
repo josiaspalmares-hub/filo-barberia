@@ -195,3 +195,11 @@ $$;
 
 revoke execute on function public.filo_cancelar(text, text) from public, authenticated;
 grant execute on function public.filo_cancelar(text, text) to anon;
+
+-- ---- RLS también en el esquema privado (15-nov-2026). Las funciones son de postgres y siguen leyendo. ----
+alter table privado.config enable row level security;
+alter table privado.intentos enable row level security;
+alter table privado.filo_duenos enable row level security;
+alter table privado.filo_intentos enable row level security;
+alter table privado.filo_intentos_cancelar enable row level security;
+revoke execute on function public.filo_es_dueno() from anon;
