@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Panel · FILO Barbería</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="img/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Figtree:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/panel.css" />
+</head>
+<body>
+  <main class="panel">
+    <!-- Entrada -->
+    <section class="entrar" data-entrar>
+      <a class="logo" href="index.html">FILO<span>.</span></a>
+      <h1 class="entrar__titulo">Panel de la <em>barbería</em></h1>
+      <p class="entrar__texto">Citas del día, por barbero, y marcar cuáles ya se hicieron.</p>
+      <form class="entrar__form" data-login novalidate>
+        <label class="campo"><span>Correo</span><input name="correo" type="email" autocomplete="username" required /></label>
+        <label class="campo"><span>Contraseña</span><input name="clave" type="password" autocomplete="current-password" minlength="6" required /></label>
+        <p class="aviso" data-login-aviso role="alert"></p>
+        <button class="boton boton--cobre" type="submit">Entrar</button>
+      </form>
+      <div class="entrar__demo">
+        <p>¿Vienes del portafolio?</p>
+        <button class="boton boton--borde" type="button" data-demo>Ver demostración con datos de ejemplo</button>
+      </div>
+    </section>
+
+    <!-- Tablero -->
+    <section class="tablero" data-tablero hidden>
+      <header class="tablero__cabeza">
+        <a class="logo" href="index.html">FILO<span>.</span></a>
+        <p class="tablero__modo" data-modo></p>
+        <button class="boton boton--borde boton--chico" type="button" data-salir>Salir</button>
+      </header>
+
+      <div class="saludo">
+        <p class="etiqueta" data-fecha-hoy></p>
+        <h1 class="saludo__titulo" data-saludo>Buenas</h1>
+      </div>
+
+      <div class="cifras">
+        <article class="cifra"><p class="cifra__numero" data-cifra="total">0</p><p class="cifra__texto">citas en el día</p></article>
+        <article class="cifra"><p class="cifra__numero" data-cifra="pendientes">0</p><p class="cifra__texto">por atender</p></article>
+        <article class="cifra"><p class="cifra__numero" data-cifra="hechas">0</p><p class="cifra__texto">ya atendidas</p></article>
+        <article class="cifra cifra--cobre"><p class="cifra__numero" data-cifra="ingreso">$0</p><p class="cifra__texto">estimado del día</p></article>
+      </div>
+
+      <div class="controles">
+        <label class="selector"><span>Día</span><input type="date" data-filtro-dia /></label>
+        <div class="barberos-filtro" role="group" aria-label="Filtrar por barbero" data-filtro-barbero></div>
+      </div>
+
+      <p class="estado" data-estado aria-live="polite"></p>
+      <ol class="agenda" data-agenda></ol>
+    </section>
+  </main>
+  <script type="module" src="js/panel.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FILO · Barbería en Los Palos Grandes, Caracas</title>
+  <meta name="description" content="FILO es una barbería de muestra para un portafolio: fades, barba a navaja y reserva de citas en línea con hora real disponible." />
+  <meta name="theme-color" content="#0f0e0d" />
+  <link rel="icon" href="img/logo.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;900&family=Figtree:wght@400;500;600;700&family=Playfair+Display:ital,wght@1,500;1,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <div class="carga" aria-hidden="true">
+    <div class="poste poste--grande"><span></span></div>
+    <p class="carga__texto">Afilando navajas…</p>
+  </div>
+
+  <header class="encabezado">
+    <a class="encabezado__logo" href="#inicio" aria-label="FILO, ir al inicio">FILO<span>.</span></a>
+    <nav class="encabezado__menu" aria-label="Menú principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#antes">Antes y después</a>
+      <a href="#equipo">Equipo</a>
+      <a href="#visitanos">Visítanos</a>
+    </nav>
+    <a class="boton boton--cobre boton--chico" href="#reservar">Reservar</a>
+  </header>
+
+  <main>
+    <!-- 1 · Portada: la navaja corta el título -->
+    <section class="portada" id="inicio">
+      <video class="portada__foto" data-video-portada autoplay muted loop playsinline preload="metadata" poster="media/portada-cartel.webp" aria-hidden="true">
+        <source media="(max-width: 640px)" src="media/portada-movil.mp4" type="video/mp4" />
+        <source src="media/portada-pc.mp4" type="video/mp4" />
+      </video>
+      <div class="portada__velo"></div>
+      <div class="portada__contenido">
+        <p class="etiqueta etiqueta--clara">Barbería · Los Palos Grandes, Caracas</p>
+        <h1 class="corte" aria-label="FILO">
+          <span class="corte__mitad corte__mitad--arriba" aria-hidden="true">FILO</span>
+          <span class="corte__mitad corte__mitad--abajo" aria-hidden="true">FILO</span>
+          <span class="corte__linea" aria-hidden="true"></span>
+        </h1>
+        <p class="portada__lema">Cortes con <em>filo</em>, sin apuro y con cita.</p>
+        <div class="portada__acciones">
+          <a class="boton boton--cobre" href="#reservar">Reservar mi cita</a>
+          <a class="boton boton--borde-claro" href="#servicios">Ver precios</a>
+        </div>
+      </div>
+      <div class="portada__datos">
+        <p class="dato"><span class="dato__punto" data-abierto-punto></span><span data-abierto>Abierto</span></p>
+        <p class="dato" data-fila>En la fila ahora: —</p>
+      </div>
+      <div class="poste poste--lado" aria-hidden="true"><span></span></div>
+    </section>
+
+    <div class="cinta" aria-hidden="true">
+      <div class="cinta__pista">
+        <span>Fade</span><span>Taper</span><span>Barba a navaja</span><span>Diseños</span><span>Toalla caliente</span><span>Niños</span>
+        <span>Fade</span><span>Taper</span><span>Barba a navaja</span><span>Diseños</span><span>Toalla caliente</span><span>Niños</span>
+      </div>
+    </div>
+
+    <!-- 1b · Capítulos: fotos a pantalla completa con una frase cada una -->
+    <section class="capitulos" data-capitulos aria-label="Así se trabaja en FILO">
+      <div class="capitulos__fijo">
+        <img class="capitulos__foto activa" src="img/fondos/local2.webp" alt="" />
+        <img class="capitulos__foto" src="img/cortes/k10.webp" alt="" loading="lazy" />
+        <img class="capitulos__foto" src="img/cortes/fade-a.webp" alt="" loading="lazy" />
+        <div class="capitulos__velo"></div>
+        <ol class="capitulos__frases">
+          <li class="activa"><span class="capitulos__num">01</span><p>Entra.<br /><em>Siéntate tranquilo.</em></p></li>
+          <li><span class="capitulos__num">02</span><p>Cada línea<br /><em>cuenta.</em></p></li>
+          <li><span class="capitulos__num">03</span><p>Sales con<br /><em>filo.</em></p></li>
+        </ol>
+        <div class="capitulos__barra" aria-hidden="true"><span data-capitulos-avance></span></div>
+      </div>
+    </section>
+
+    <!-- 2 · Servicios: carta de precios con foto que sigue al cursor -->
+    <section class="servicios" id="servicios">
+      <div class="cabeza" data-revelar>
+        <p class="etiqueta">La carta</p>
+        <h2 class="titulo">Servicios y <em>precios</em></h2>
+        <p class="cabeza__texto">Precios en dólares y en bolívares a la tasa del BCV del día. Pasa el cursor por un servicio para verlo.</p>
+      </div>
+      <ul class="carta" data-carta></ul>
+      <p class="nota-tasa" data-tasa>Cargando la tasa del BCV…</p>
+      <img class="carta__flotante" data-carta-foto alt="" aria-hidden="true" />
+    </section>
+
+    <!-- 3 · Antes y después -->
+    <section class="antes" id="antes">
+      <div class="cabeza" data-revelar>
+        <p class="etiqueta etiqueta--clara">Antes y después</p>
+        <h2 class="titulo titulo--claro">Arrastra y <em>mira</em> la diferencia</h2>
+        <p class="cabeza__texto cabeza__texto--claro">Mismo cliente, misma silla, 45 minutos después. Taper con la nuca limpia a navaja.</p>
+      </div>
+      <div class="comparador" data-comparador style="--corte: 50%">
+        <img src="img/cortes/k03.webp" alt="Antes: cabello largo en la nuca" class="comparador__foto" />
+        <img src="img/cortes/k04.webp" alt="Después: taper con la nuca limpia" class="comparador__foto comparador__foto--despues" />
+        <span class="comparador__etiqueta comparador__etiqueta--antes" aria-hidden="true">Antes</span>
+        <span class="comparador__etiqueta comparador__etiqueta--despues" aria-hidden="true">Después</span>
+        <div class="comparador__barra" aria-hidden="true"><span class="comparador__mango">⟷</span></div>
+        <input class="comparador__rango" type="range" min="0" max="100" value="50" aria-label="Mover la división entre antes y después" data-comparador-rango />
+      </div>
+    </section>
+
+    <!-- 4 · Equipo -->
+    <section class="equipo" id="equipo">
+      <div class="cabeza" data-revelar>
+        <p class="etiqueta">El equipo</p>
+        <h2 class="titulo">Cuatro <em>manos</em> de confianza</h2>
+      </div>
+      <ul class="barberos" data-barberos></ul>
+    </section>
+
+    <!-- 4b · Frase en tres golpes -->
+    <section class="golpes" data-golpes aria-label="Corte limpio, barba filosa, cero apuro">
+      <p class="golpes__linea">Corte limpio.</p>
+      <p class="golpes__linea">Barba <em>filosa.</em></p>
+      <p class="golpes__linea">Cero apuro.</p>
+    </section>
+
+    <!-- 5 · Galería que se arrastra -->
+    <section class="galeria" aria-label="Trabajos recientes">
+      <div class="cabeza cabeza--fila" data-revelar>
+        <h2 class="titulo">Salió de <em>la silla</em></h2>
+        <p class="cabeza__texto">Arrastra para ver más trabajos de la semana.</p>
+      </div>
+      <div class="galeria__pista" data-galeria tabindex="0" aria-label="Galería. Arrastra o usa las flechas.">
+        <img src="img/cortes/fade-a.webp" alt="Fade bajo con barba perfilada, de perfil" loading="lazy" />
+        <img src="img/cortes/k02.webp" alt="Fade alto visto desde atrás" loading="lazy" />
+        <img src="img/cortes/k08.webp" alt="Perfilado del cuello con máquina" loading="lazy" />
+        <img src="img/cortes/k06.webp" alt="Cliente con fade y barba en la silla" loading="lazy" />
+        <img src="img/cortes/k01.webp" alt="Degradado en proceso con máquina" loading="lazy" />
+        <img src="img/cortes/k09.webp" alt="Taper en blanco y negro" loading="lazy" />
+        <img src="img/cortes/cliente.webp" alt="Cliente con barba larga listo para el corte" loading="lazy" />
+        <img src="img/fondos/sillon.webp" alt="Barbero y cliente en el sillón" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- 6 · Reservar -->
+    <section class="reservar" id="reservar">
+      <div class="cabeza" data-revelar>
+        <p class="etiqueta etiqueta--clara">Reserva en línea</p>
+        <h2 class="titulo titulo--claro">Aparta tu <em>silla</em></h2>
+        <p class="cabeza__texto cabeza__texto--claro">Cinco pasos, menos de un minuto. Solo te mostramos horas libres de verdad.</p>
+      </div>
+
+      <form class="reserva" data-reserva novalidate>
+        <ol class="pasos-reserva" aria-label="Progreso de la reserva">
+          <li data-paso-indicador="1" class="activo">Servicio</li>
+          <li data-paso-indicador="2">Barbero</li>
+          <li data-paso-indicador="3">Día</li>
+          <li data-paso-indicador="4">Hora</li>
+          <li data-paso-indicador="5">Tus datos</li>
+        </ol>
+
+        <fieldset class="paso" data-paso="1">
+          <legend class="paso__titulo">¿Qué te vas a hacer?</legend>
+          <div class="opciones opciones--servicios" data-opciones-servicio></div>
+        </fieldset>
+
+        <fieldset class="paso" data-paso="2" hidden>
+          <legend class="paso__titulo">¿Con quién?</legend>
+          <div class="opciones opciones--barberos" data-opciones-barbero></div>
+        </fieldset>
+
+        <fieldset class="paso" data-paso="3" hidden>
+          <legend class="paso__titulo">¿Qué día?</legend>
+          <div class="opciones opciones--dias" data-opciones-dia></div>
+        </fieldset>
+
+        <fieldset class="paso" data-paso="4" hidden>
+          <legend class="paso__titulo">¿A qué hora?</legend>
+          <p class="paso__estado" data-horas-estado aria-live="polite"></p>
+          <div class="opciones opciones--horas" data-opciones-hora></div>
+        </fieldset>
+
+        <fieldset class="paso" data-paso="5" hidden>
+          <legend class="paso__titulo">¿A nombre de quién?</legend>
+          <div class="campos">
+            <label class="campo"><span>Nombre</span><input name="nombre" type="text" minlength="2" maxlength="40" autocomplete="given-name" required /></label>
+            <label class="campo"><span>Teléfono (WhatsApp)</span><input name="telefono" type="tel" inputmode="tel" placeholder="0414-1234567" maxlength="14" autocomplete="tel-national" required /></label>
+          </div>
+          <p class="paso__privacidad">Tu teléfono solo lo ve la barbería para confirmarte la cita. No lo publicamos ni lo compartimos.</p>
+        </fieldset>
+
+        <aside class="resumen" aria-live="polite">
+          <p class="etiqueta etiqueta--clara">Tu cita</p>
+          <dl class="resumen__lista">
+            <div><dt>Servicio</dt><dd data-resumen="servicio">—</dd></div>
+            <div><dt>Barbero</dt><dd data-resumen="barbero">—</dd></div>
+            <div><dt>Día</dt><dd data-resumen="dia">—</dd></div>
+            <div><dt>Hora</dt><dd data-resumen="hora">—</dd></div>
+          </dl>
+          <p class="resumen__precio" data-resumen-precio></p>
+          <p class="aviso" data-reserva-aviso role="alert"></p>
+          <div class="resumen__botones">
+            <button class="boton boton--borde-claro" type="button" data-atras hidden>← Atrás</button>
+            <button class="boton boton--cobre" type="button" data-siguiente>Siguiente →</button>
+            <button class="boton boton--cobre" type="submit" data-confirmar hidden>Confirmar cita</button>
+          </div>
+        </aside>
+      </form>
+
+      <div class="confirmada" data-confirmada hidden tabindex="-1">
+        <div class="poste poste--chico" aria-hidden="true"><span></span></div>
+        <p class="etiqueta etiqueta--clara">Cita apartada</p>
+        <h3 class="confirmada__titulo">¡Listo, <span data-conf-nombre></span>!</h3>
+        <p class="confirmada__codigo">Tu código: <strong data-conf-codigo></strong></p>
+        <p class="confirmada__texto" data-conf-texto></p>
+        <div class="confirmada__botones">
+          <a class="boton boton--cobre" data-conf-whatsapp href="#" target="_blank" rel="noopener">Confirmar por WhatsApp</a>
+          <a class="boton boton--borde-claro" data-conf-calendario href="#" download="cita-filo.ics">Agregar a mi calendario</a>
+          <button class="boton boton--borde-claro" type="button" data-otra>Reservar otra</button>
+        </div>
+        <p class="confirmada__nota">El calendario te avisa una hora antes. Si no puedes venir, cancela abajo con tu código y la hora queda libre para otro.</p>
+      </div>
+
+      <details class="gestionar">
+        <summary>¿Ya tienes cita y no puedes venir? Cancélala aquí</summary>
+        <form class="gestionar__form" data-cancelar novalidate>
+          <label class="campo"><span>Código de la cita</span><input name="codigo" type="text" placeholder="FILO-A1B2C3" maxlength="11" autocomplete="off" required /></label>
+          <label class="campo"><span>Teléfono con el que reservaste</span><input name="telefono" type="tel" inputmode="tel" placeholder="0414-1234567" maxlength="14" required /></label>
+          <button class="boton boton--borde-claro" type="submit">Cancelar mi cita</button>
+          <p class="aviso" data-cancelar-aviso role="alert"></p>
+        </form>
+      </details>
+    </section>
+
+    <!-- 7 · Tarjeta de sellos -->
+    <section class="sellos" aria-labelledby="sellos-titulo">
+      <div class="sellos__texto" data-revelar>
+        <p class="etiqueta">Cliente fijo</p>
+        <h2 class="titulo" id="sellos-titulo">El sexto <em>va por la casa</em></h2>
+        <p class="cabeza__texto">Cada corte suma un sello. Al llenar cinco, el siguiente es gratis. Toca la tarjeta para ver cómo se llena.</p>
+      </div>
+      <button class="tarjeta-sellos" type="button" data-sellos aria-label="Sumar un sello de ejemplo">
+        <span class="tarjeta-sellos__marca">FILO<span>.</span></span>
+        <span class="tarjeta-sellos__fila" data-sellos-fila></span>
+        <span class="tarjeta-sellos__pie" data-sellos-texto>0 de 5 sellos</span>
+      </button>
+    </section>
+
+    <!-- 8 · Opiniones -->
+    <section class="opiniones" aria-labelledby="opiniones-titulo">
+      <h2 class="titulo" id="opiniones-titulo" data-revelar>Lo que dicen <em>en la silla</em></h2>
+      <div class="opiniones__lista">
+        <figure class="opinion" data-revelar><blockquote>“Llegué con la foto de un fade que vi en TikTok y Andrés lo dejó igualito. Ya no voy a otro lado.”</blockquote><figcaption>Daniel R. · Chacao</figcaption></figure>
+        <figure class="opinion" data-revelar><blockquote>“La barba con toalla caliente de Kevin es otro nivel. Salí oliendo a señor importante.”</blockquote><figcaption>Gustavo P. · Altamira</figcaption></figure>
+        <figure class="opinion" data-revelar><blockquote>“Reservé por la web a las 11:00 PM y al día siguiente no esperé ni cinco minutos.”</blockquote><figcaption>Jesús M. · Los Palos Grandes</figcaption></figure>
+      </div>
+    </section>
+
+    <!-- 9 · Visítanos -->
+    <section class="visitanos" id="visitanos">
+      <div class="visitanos__datos" data-revelar>
+        <p class="etiqueta">Visítanos</p>
+        <h2 class="titulo">Segunda avenida de <em>Los Palos Grandes</em></h2>
+        <dl class="lista-datos">
+          <div><dt>Horario</dt><dd>Lunes a sábado, 9:00 AM a 7:00 PM<br />Domingo, 10:00 AM a 2:00 PM</dd></div>
+          <div><dt>Sin cita</dt><dd>Te atendemos por orden de llegada si hay silla libre. Con cita no esperas.</dd></div>
+          <div><dt>Pago</dt><dd>Efectivo, pago móvil, Zelle y Binance.</dd></div>
+        </dl>
+        <a class="boton boton--oscuro" href="https://www.google.com/maps/search/?api=1&query=Los+Palos+Grandes+Caracas" target="_blank" rel="noopener">Cómo llegar →</a>
+      </div>
+      <div class="mapa" data-revelar>
+        <img src="img/fondos/local.webp" alt="Interior de la barbería con sillones y espejos" loading="lazy" class="mapa__foto" />
+        <iframe title="Mapa de Los Palos Grandes, Caracas" loading="lazy" referrerpolicy="no-referrer"
+          src="https://www.openstreetmap.org/export/embed.html?bbox=-66.8520%2C10.4930%2C-66.8340%2C10.5040&amp;layer=mapnik&amp;marker=10.4985%2C-66.8430"></iframe>
+      </div>
+    </section>
+
+    <!-- 10 · Preguntas -->
+    <section class="preguntas" aria-labelledby="preguntas-titulo">
+      <h2 class="titulo" id="preguntas-titulo" data-revelar>Preguntas <em>de silla</em></h2>
+      <div class="acordeon" data-revelar>
+        <details name="faq" open><summary>¿Y si llego tarde?</summary><p>Te esperamos 10 minutos. Después de eso, la silla pasa al que está en la fila y te buscamos el siguiente hueco libre.</p></details>
+        <details name="faq"><summary>¿Cómo cancelo o cambio la cita?</summary><p>Escríbenos por WhatsApp con tu código (FILO-…) y te la movemos. Si cancelas con dos horas de anticipación, no pasa nada.</p></details>
+        <details name="faq"><summary>¿Tengo que pagar para reservar?</summary><p>No. Pagas en la barbería cuando terminas, como prefieras.</p></details>
+        <details name="faq"><summary>¿Atienden niños?</summary><p>Sí, hasta 12 años, sobre todo con Mateo, que tiene la paciencia de un santo.</p></details>
+        <details name="faq"><summary>¿Esto es una barbería de verdad?</summary><p>No: FILO es una barbería inventada para un portafolio. Las reservas sí funcionan (se guardan en una base de datos de prueba), pero nadie te va a cortar el pelo.</p></details>
+      </div>
+    </section>
+
+    <section class="cierre">
+      <h2 class="cierre__frase">Tu próximo corte <em>ya tiene hora.</em></h2>
+      <a class="boton boton--cobre boton--grande" href="#reservar">Reservar ahora</a>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p class="pie__marca" aria-hidden="true">FILO<span>.</span></p>
+    <div class="pie__fila">
+      <p><strong>Proyecto de portafolio.</strong> FILO es una barbería ficticia: nombres, precios, opiniones y dirección son de ejemplo.</p>
+      <p>Fotos: <a href="https://www.pexels.com" target="_blank" rel="noopener">Pexels</a> · Mapa: <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> · <a href="panel.html">Panel del dueño</a></p>
+    </div>
+  </footer>
+
+  <div class="aviso-flotante" data-toast role="status" aria-live="polite"></div>
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
