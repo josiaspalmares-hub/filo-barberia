@@ -403,3 +403,4 @@ video.portada__foto { animation: none; transform: none; }
   /* la descripción no pasa por debajo del precio */
   .plato__desc { grid-column: 1; }
 }
+.paso__privacidad a { color: inherit; }
